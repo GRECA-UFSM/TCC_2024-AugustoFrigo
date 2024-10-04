@@ -1,0 +1,26 @@
+ms1:
+  key: test/ms1_public.pem
+  tags:
+    - tag1_conf
+    - tag2_conf
+    - tag3_conf
+    - tag4_conf
+    - tag5_conf
+    - tag1_int
+    - tag2_int
+    - tag3_int
+    - tag4_int
+    - tag5_int
+ms2:
+  key: test/ms2_public.pem
+  tags:
+    - tag1_conf
+    - tag2_conf
+    - tag3_conf
+    - tag4_conf
+    - tag5_conf
+    - tag1_int
+    - tag2_int
+    - tag3_int
+    - tag4_int
+    - tag5_int

@@ -1,0 +1,6 @@
+FROM ruby:3.3.4-alpine
+RUN gem install sinatra rackup httparty redis
+COPY keys/ms1.pem './'
+COPY keys/ms1_public.pem './'
+COPY ms.rb './'
+COPY manager.rb './'
