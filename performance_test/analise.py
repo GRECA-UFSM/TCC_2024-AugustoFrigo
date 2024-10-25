@@ -1,7 +1,8 @@
 import os
 import matplotlib.pyplot as plt
 import re
-import pdb
+import statistics
+import math
 x = [1, 10, 100, 1000, 10000, 100000]
 
 result_files = []
@@ -28,6 +29,7 @@ for file in result_files:
 graph_log = open('graph_values', 'w')
 for key, file_list in organized_files.items():
     means = []
+    file_list = filter(lambda x: "1" in x, file_list)
     for file_name in file_list:
         file = open(file_name, "r")
         time_values = []
@@ -42,7 +44,14 @@ for key, file_list in organized_files.items():
         time_values.sort()
         time_values = time_values[3:-3]
         print(f"tamanho da lista: {len(time_values)}")
-        mean = sum(time_values) / len(time_values)
+        mean = statistics.mean(time_values)
+        stddev = statistics.stdev(time_values)
+        z = 1.96
+        n = len(time_values)  # Tamanho da amostra
+        error_margin = z * (stddev / math.sqrt(n))
+        print(f"mean: {mean}")
+        print(f"stdev: {stddev}")
+        print(f"error_margin: {error_margin}")
         print("tamanho:")
         print(len(time_values))
         means.append(mean)
