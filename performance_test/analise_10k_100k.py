@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import re
 import statistics
 import math
-x = [1, 10, 100, 1000, 10000, 100000]
+x = [20000, 40000, 60000, 80000]
 
 result_files = []
 for root, dirs, files in os.walk('./'):
@@ -26,10 +26,10 @@ for file in result_files:
     for name in names:
         if name + "\\" in file:
             organized_files[name].append(file)
-graph_log = open('graph_values', 'w')
+graph_log = open('graph_values_10_100k', 'w')
 for key, file_list in organized_files.items():
     means = []
-    file_list = filter(lambda x: "1" in x, file_list)
+    file_list = filter(lambda x: "20000" in x or "40000" in x or "60000" in x or "80000" in x, file_list)
     for file_name in file_list:
         file = open(file_name, "r")
         time_values = []
