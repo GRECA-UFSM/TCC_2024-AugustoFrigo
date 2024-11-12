@@ -1,6 +1,6 @@
 #!/bin/bash
 declare -a docker_array
-byte_sizes=(20000 30000 40000 50000 60000 70000 80000 90000)
+byte_sizes=(1234 20000 30000 40000 50000 60000 70000 80000 90000)
 
 for byte_size in "${byte_sizes[@]}" ; do
   rm -rf results_$byte_size
@@ -26,3 +26,4 @@ for element in "${docker_array[@]}" ; do
 done
 rm -rf keys/
 rm manager.rb
+rm results_1234
