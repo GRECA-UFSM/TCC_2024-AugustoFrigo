@@ -46,7 +46,7 @@ for key, file_list in organized_files.items():
         z = 1.96
         n = len(time_values)  # Tamanho da amostra
         error_margin = z * (stddev / math.sqrt(n))
-        print(f"mean: {mean}")
+        print(f"mean for file {file_name}: {mean}")
         print(f"stdev: {stddev}")
         print(f"error_margin: {error_margin}")
         print("tamanho:")
