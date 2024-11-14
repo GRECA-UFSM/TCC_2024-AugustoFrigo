@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import re
 import statistics
 import math
-x = [20000, 40000, 60000, 80000]
+x = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
 
 result_files = []
 for root, dirs, files in os.walk('./'):
@@ -29,7 +29,8 @@ for file in result_files:
 graph_log = open('graph_values_10_100k', 'w')
 for key, file_list in organized_files.items():
     means = []
-    file_list = filter(lambda x: "20000" in x or "40000" in x or "60000" in x or "80000" in x, file_list)
+    file_list = filter(lambda x: "10000" in x or "20000" in x or "30000" in x or "40000" in x or "50000" in x or "60000" in x or "70000" in x or "80000" in x or "90000" in x or "100000" in x, file_list)
+    file_list = sorted(file_list, key=lambda x: int(re.search(r'results_(\d+)', x).group(1)))
     for file_name in file_list:
         file = open(file_name, "r")
         time_values = []
@@ -46,7 +47,7 @@ for key, file_list in organized_files.items():
         z = 1.96
         n = len(time_values)  # Tamanho da amostra
         error_margin = z * (stddev / math.sqrt(n))
-        print(f"mean: {mean}")
+        print(f"mean for file {file_name}: {mean}")
         print(f"stdev: {stddev}")
         print(f"error_margin: {error_margin}")
         print("tamanho:")
